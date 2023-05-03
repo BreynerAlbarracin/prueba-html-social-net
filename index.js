@@ -30,26 +30,40 @@ app.get('/:id', function(req, res) {
     'https://www.bhg.com/thmb/H9VV9JNnKl-H1faFXnPlQfNprYw=/1799x0/filters:no_upscale():strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
   ]
 
+  twitterStyle= [
+    'summary',
+    'summary_large_image',
+    'app',
+    'player',
+  ]
+
+  facebookStyle = [
+    'article',
+    'website',
+    'book',
+    'profile',
+  ]
 
   let htmlString = '<html>'
   + '<head>'
-  + '<meta name="twitter:card" content="summary"></meta>'
-  // + '<meta name="twitter:card" content="summary_large_image"></meta>'
-  // + '<meta name="twitter:card" content="app"></meta>'
-  // + '<meta name="twitter:card" content="player"></meta>'
-  + '<meta property="og:type" content="article" />'
-  // + '<meta property="og:type" content="website" />'
-  // + '<meta property="og:type" content="book" />'
-  // + '<meta property="og:type" content="profile" />'
+  + '<meta name="twitter:card" content="{TWITTERSTYLE}"></meta>'
+  + '<meta property="og:type" content="{FACEBOOKSTYLE}" />'
   + '<meta property="og:title" content="{TITLE}" />'
   + '<meta property="og:description" content="{DESCRIPTION}" />'
   + '<meta property="og:image" content="{IMAGE}" />'
   + '<meta property="og:url" content="http://www.google.com" />'
   + '</head>'
   + '<body>'
+  + '<script>'
+  + 'setTimeout(() => {'
+  + 'window.location.replace("https://www.google.com")'
+  + '}, 5000)'
+  + '</script>'
   + '</body>'
   + '</html>'
 
+  htmlString = htmlString.replace('{TWITTERSTYLE}', twitterStyle[req.params.id])
+  htmlString = htmlString.replace('{FACEBOOKSTYLE}', facebookStyle[req.params.id])
   htmlString = htmlString.replace('{TITLE}', title[req.params.id])
   htmlString = htmlString.replace('{DESCRIPTION}', description[req.params.id])
   htmlString = htmlString.replace('{IMAGE}', images[req.params.id])
