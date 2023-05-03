@@ -56,7 +56,7 @@ app.get('/:id', function(req, res) {
   + '<body>'
   + '<script>'
   + 'setTimeout(() => {'
-  + 'window.location.replace("https://www.google.com")'
+  + 'window.location.replace("{REDIRECT}")'
   + '}, 5000)'
   + '</script>'
   + '</body>'
@@ -67,6 +67,7 @@ app.get('/:id', function(req, res) {
   htmlString = htmlString.replace('{TITLE}', title[req.params.id])
   htmlString = htmlString.replace('{DESCRIPTION}', description[req.params.id])
   htmlString = htmlString.replace('{IMAGE}', images[req.params.id])
+  htmlString = htmlString.replace('{REDIRECT}', 'https://www.google.com')
 
   res.send(htmlString);
 });
