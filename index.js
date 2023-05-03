@@ -41,7 +41,6 @@ app.get('/:id', function(req, res) {
   // + '<meta property="og:type" content="website" />'
   // + '<meta property="og:type" content="book" />'
   // + '<meta property="og:type" content="profile" />'
-  + '<meta name="twitter:card" content="player"></meta>'
   + '<meta property="og:title" content="{TITLE}" />'
   + '<meta property="og:description" content="{DESCRIPTION}" />'
   + '<meta property="og:image" content="{IMAGE}" />'
